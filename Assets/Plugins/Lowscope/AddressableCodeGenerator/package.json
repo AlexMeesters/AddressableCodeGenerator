@@ -1,0 +1,21 @@
+{
+    "name": "com.lowscope.AddressableCodeGenerator",
+    "version": "1.0.0",
+    "displayName": "Addressable Code Generator",
+    "description": "Tool to automatically create code for addressable names",
+    "unity": "2020.1",
+    "documentationUrl": "https://github.com/AlexMeesters/AddressableCodeGenerator",
+    "changelogUrl": "https://github.com/AlexMeesters/unity-appwrite-plugin/releases/tag/v0.1",
+    "licensesUrl": "https://github.com/AlexMeesters/AddressableCodeGenerator/blob/main/README.md",
+    "dependencies": {
+        "com.unity.addressables": "1.21.14"
+   },
+   "keywords": [
+      "Addressable"
+    ],
+    "author": {
+      "name": "Lowscope",
+      "email": "info@low-scope.com",
+      "url": "https://www.low-scope.com"
+    }
+}
