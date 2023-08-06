@@ -1,5 +1,5 @@
 {
-    "name": "com.lowscope.AddressableCodeGenerator",
+    "name": "com.lowscope.addressablecodegenerator",
     "version": "1.0.0",
     "displayName": "Addressable Code Generator",
     "description": "Tool to automatically create code for addressable names",
