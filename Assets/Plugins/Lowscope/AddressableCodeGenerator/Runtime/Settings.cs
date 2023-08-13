@@ -7,12 +7,13 @@ namespace Lowscope.AddressableReferenceCodeGenerator {
     [Serializable]
     public struct Configuration {
       public bool autoGeneration;
+      public bool createNestedGroupClasses;
       public string targetFolderPath;
     }
 
-    public static Configuration Get () => Settings.GetObjectFromEditorSession<Configuration> ("ARCG_Configuration");
+    public static Configuration Get () => GetObjectFromEditorSession<Configuration> ("ARCG_Configuration");
 
-    public static void Set (Configuration configuration) => Settings.StoreObjectToEditorSession (configuration, "ARCG_Configuration");
+    public static void Set (Configuration configuration) => StoreObjectToEditorSession (configuration, "ARCG_Configuration");
 
     static void StoreObjectToEditorSession<T> (T sessionObject, string key) {
       var configurationString = JsonUtility.ToJson (sessionObject);
