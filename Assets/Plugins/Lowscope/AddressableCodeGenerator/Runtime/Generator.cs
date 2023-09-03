@@ -1,3 +1,4 @@
+using System;
 using static UnityEditor.AddressableAssets.Settings.AddressableAssetSettings.ModificationEvent;
 using System.Collections.Generic;
 using System.IO;
@@ -152,8 +153,18 @@ namespace Lowscope.AddressableReferenceCodeGenerator
 			// Replace each special character with an underscore
 			foreach (char specialChar in specialCharacters)
 				input = input.Replace(specialChar.ToString(), "");
-
+			
+			// Remove white spaces from the field name
+			input = RemoveWhiteSpaces(input);
+			
 			return input;
+		}
+		
+		static string RemoveWhiteSpaces(string input)
+		{
+			// Replace white spaces with an empty string
+			string[] parts = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+			return string.Join("", parts);
 		}
 	}
 }
