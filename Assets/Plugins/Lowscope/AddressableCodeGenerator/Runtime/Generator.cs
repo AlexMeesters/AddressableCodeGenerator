@@ -96,7 +96,7 @@ namespace Lowscope.AddressableReferenceCodeGenerator
 						stringBuilder.AppendLine("   }");
 
 					const char bracket = '{';
-					stringBuilder.AppendLine($"   public class {groupName.Replace(' ', '_')} {bracket}");
+					stringBuilder.AppendLine($"   public class {RemoveSpecialCharacters(groupName)} {bracket}");
 
 					activeGroupName = groupName;
 				}
@@ -106,7 +106,7 @@ namespace Lowscope.AddressableReferenceCodeGenerator
 					continue;
 
 				var createNestedClassesSpace = createNestedGroupClasses ? "   " : "";
-				var assetName = entry.MainAsset.name.Replace(' ', '_');
+				var assetName = RemoveSpecialCharacters(entry.MainAsset.name);
 				stringBuilder.AppendLine($"   {createNestedClassesSpace}public const string {assetName} = \"{entry.address}\"; ");
 				addedAddresses.Add(entry.address);
 			}
@@ -135,13 +135,25 @@ namespace Lowscope.AddressableReferenceCodeGenerator
 				}
 				else
 				{
-					stringBuilder.AppendLine($"   public const string {labelStrings[i].Replace(' ', '_')} = \"{labelStrings[i]}\"; ");
+					stringBuilder.AppendLine($"   public const string {RemoveSpecialCharacters(labelStrings[i])} = \"{labelStrings[i]}\"; ");
 				}
 			}
 
 			stringBuilder.AppendLine("}");
 
 			File.WriteAllText(Path.Combine(folder, "Labels.cs"), stringBuilder.ToString());
+		}
+		
+		static string RemoveSpecialCharacters(string input)
+		{
+			// Define a list of special characters to replace
+			char[] specialCharacters = { '/', '.', ',', '-' };
+
+			// Replace each special character with an underscore
+			foreach (char specialChar in specialCharacters)
+				input = input.Replace(specialChar.ToString(), "");
+
+			return input;
 		}
 	}
 }
