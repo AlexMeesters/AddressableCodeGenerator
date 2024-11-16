@@ -4,7 +4,7 @@ Simple code generation script that automatically looks for addressable events an
 
 ## Easy install using the Unity Package Manager
 ```
-https://github.com/AlexMeesters/AddressableCodeGenerator.git?path=Assets/Plugins/Lowscope/AddressableCodeGenerator
+"com.lowscope.addressablecodegenerator": "git+https://github.com/AlexMeesters/AddressableCodeGenerator.git?path=Assets/Plugins/Lowscope/AddressableCodeGenerator"
 ```
 
 ## How it works
